@@ -1,0 +1,54 @@
+@import "@sil/themer/use";
+
+.property-list {
+  color: variable(background90Text);
+  margin: auto;
+  background-color: variable(background90);
+
+  font-size: 1em;
+  font-family: monospace;
+  margin: 0;
+
+  &__header {
+    padding: 2em;
+  }
+
+  &__control {
+    padding: 0.5em;
+    font-size: 1em;
+    border-radius: variable(borderRadius);
+    border: none;
+  }
+  &__container {
+    padding: 2em;
+    background-color: variable(background75);
+    overflow: scroll;
+  }
+  &__list {
+    margin: auto;
+  }
+  &__item {
+    flex-wrap: nowrap;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__property {
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  &__value {
+    font-weight: 600;
+    white-space: nowrap;
+    &::after {
+      font-variant-numeric: tabular-nums;
+      content: "";
+      width: 0.5em;
+      height: 0.5em;
+      display: inline-block;
+      border-radius: 50%;
+      background-color: var(--color);
+      margin-left: 0.25em;
+    }
+  }
+}

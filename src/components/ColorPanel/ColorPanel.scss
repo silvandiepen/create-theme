@@ -1,0 +1,96 @@
+@import "../../style/theme";
+@import "@sil/themer/use";
+
+.color-panel {
+  $block: &;
+  @include property(
+    (
+      padding: 0.5em,
+      border-radius: borderRadius,
+      min-width: 200px,
+    )
+  );
+
+  &__list {
+    @include property(
+      (
+        display: flex,
+        flex-direction: column,
+        margin-top: 1em,
+      )
+    );
+    &:not(:hover) {
+      #{$block}__item--100 {
+        @include property(
+          (
+            z-index: 1,
+            transform: scale(1.05),
+            border-radius: 4px,
+          )
+        );
+      }
+    }
+  }
+  &__item {
+    @include property(
+      (
+        padding: 0.5em,
+        position: relative,
+        transform: scale(1),
+        transition: transform 0.1s ease-in-out,
+        display: flex,
+      )
+    );
+    &:first-child {
+      @include property(
+        (
+          border-radius: variable(borderRadius) variable(borderRadius) 0 0,
+        )
+      );
+    }
+    &:last-child {
+      @include property(
+        (
+          border-radius: 0 0 variable(borderRadius) variable(borderRadius),
+        )
+      );
+    }
+    &:hover {
+      @include property(
+        (
+          z-index: 1,
+          transform: scale(1.05),
+          border-radius: 4px,
+        )
+      );
+      #{$block}__label {
+        opacity: 1;
+      }
+    }
+  }
+  &__shade {
+    @include property(
+      (
+        background-color: background,
+        color: backgroundText,
+        display: inline-block,
+        padding: 0.5em,
+        border-radius: 2em,
+        font-size: 0.75em,
+        font-weight: bold,
+        margin-right: 1em,
+      )
+    );
+
+    // height: calc(var(--lightness) * 1px);
+  }
+  &__label {
+    @include property(
+      (
+        font-size: 0.875em,
+        opacity: 0,
+        transition: 0.3s ease-in-out,
+      )
+    );
+  }
+}

@@ -1,0 +1,19 @@
+<div :class="style.bem()">
+  <h5 :class="style.bem('title')">{{color}}</h5>
+
+  <ColorInput :class="style.bem('control')" :color="currentColor" />
+
+  <ul :class="style.bem('list')">
+    <li
+      :class="style.bem('item'), style.bem('item',shade.shade.replace(/\D/g,''))"
+      v-for="shade in currentColor.set"
+      :key="color.shade"
+      :style="`background-color: ${shade.value}; color: ${shade.text}; --lightness: ${100 - getLightness(shade.value)}`"
+    >
+      <span :class="style.bem('shade')"
+        >{{shade.shade.replace(/\D/g,'')}}%</span
+      >
+      <span :class="style.bem('label')">{{shade.value}}</span>
+    </li>
+  </ul>
+</div>

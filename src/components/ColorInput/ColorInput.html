@@ -1,0 +1,10 @@
+<div :class="style.bem()" :style="`--color: ${input}`">
+  <input
+    :class="style.bem('control')"
+    type="color"
+    v-model="input"
+    @change="update"
+  />
+  <div :class="style.bem('custom')"></div>
+  <div :class="style.bem('label')">{{input}}</div>
+</div>

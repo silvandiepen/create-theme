@@ -1,0 +1,78 @@
+@import "../../style/theme.scss";
+@import "@sil/themer/use";
+
+.sample-content {
+  background-color: variable(background);
+  color: variable(foreground);
+  padding: 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .content {
+    max-width: 72ch;
+    width: 100%;
+  }
+  p {
+    line-height: 1.5;
+
+    & + p {
+      margin-top: 1em;
+    }
+  }
+}
+.button-group {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  padding: 1em;
+}
+.button {
+  border-radius: 2em;
+  padding: 1em;
+  line-height: 1em;
+  &--primary {
+    background-color: variable(primary);
+    color: variable(primaryText);
+  }
+  &--secondary {
+    background-color: variable(secondary);
+    color: variable(secondaryText);
+  }
+}
+
+.banner-group {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  padding: 1em;
+}
+
+.banner {
+  padding: 1em;
+  border-radius: variable(borderRadius);
+
+  width: 100%;
+  & + & {
+    margin-top: 1em;
+  }
+  &--success {
+    background-color: variable(success);
+    color: variable(successText);
+  }
+  &--warning {
+    background-color: variable(warning);
+    color: variable(warningText);
+  }
+  &--caution {
+    background-color: variable(caution);
+    color: variable(cautionText);
+  }
+  &--error {
+    background-color: variable(error);
+    color: variable(errorText);
+  }
+  &--info {
+    background-color: variable(info);
+    color: variable(infoText);
+  }
+}

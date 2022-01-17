@@ -1,0 +1,51 @@
+@import "../../style/theme.scss";
+@import "@sil/themer/use";
+.color-input {
+  $block: &;
+  position: relative;
+  // border: 1px solid red;
+  height: 3em;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  // justify-content: center;
+  // background-color: rgba(0, 0, 0, 0.1);
+  &:hover {
+    background-color: red;
+    border-radius: variable(borderRadius);
+  }
+  &__control {
+    display: block;
+    width: 100%;
+    height: 3em;
+    // border: none;
+    // outline: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    z-index: 1;
+
+    &:hover + #{$block}__custom {
+      // border-color: red;
+    }
+  }
+  &__custom {
+    z-index: 0;
+    display: block;
+    pointer-events: none;
+    width: 2em;
+    height: 2em;
+    border-radius: 50px;
+    border: 2px solid variable(foreground);
+    background-color: var(--color);
+    // position: absolute;
+    // left: 50%;
+    // top: 50%;
+    // transform: translate(-50%, -50%);
+  }
+  &__label {
+    margin-left: 1em;
+  }
+}

@@ -1,0 +1,44 @@
+<div :class="style.bem()">
+  <header :class="style.bem('header')">
+    <input
+      type="text"
+      :class="style.bem('control')"
+      placeholder="Add a prefix"
+      v-model="currentValue"
+      @change="update"
+    />
+  </header>
+  <div :class="style.bem('container')">
+    <ul :class="style.bem('list')">
+      <template v-for="(color, idx) in theme" :key="idx">
+        <!-- <li class="property-list__item" :style="`--color: ${color.value}`">
+          <span class="property-list__property"
+            >--{{ currentValue ? `${currentValue}-` : "" }}{{
+            color.name.toLowerCase() }}:</span
+          ><span class="property-list__value">{{ color.value }};</span>
+        </li> -->
+
+        <li
+          :class="style.bem('item')"
+          v-for="(shade, key) in color.set"
+          :key="`${idx}-${key}`"
+          :style="`--color: ${shade.value}`"
+        >
+          <span :class="style.bem('property')">{{property(color,shade)}}:</span>
+          <span :class="style.bem('value')">{{ shade.value }};</span>
+        </li>
+        <li
+          :class="style.bem('item')"
+          v-for="(shade, key) in color.set"
+          :key="`${idx}-${key}`"
+          :style="`--color: ${shade.value}`"
+        >
+          <span :class="style.bem('property')"
+            >{{property(color,shade,'text')}}:</span
+          >
+          <span :class="style.bem('value')">{{ shade.text }};</span>
+        </li>
+      </template>
+    </ul>
+  </div>
+</div>
